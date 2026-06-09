@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Himika Das</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --beige: #f7f2eb;
+      --beige-dark: #ede5d8;
+      --rose-pale: #f2e0e0;
+      --mauve: #b08a9e;
+      --mauve-light: #d4b8c7;
+      --sage: #a8b89a;
+      --text-dark: #5a4a42;
+      --text-mid: #7a6a62;
+      --text-light: #9a8a82;
+      --cream: #faf6f0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: var(--beige);
+      color: var(--text-dark);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(247, 242, 235, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--beige-dark);
+      padding: 0 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+    }
+
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover { color: var(--mauve); }
+
+    /* ── SECTIONS SHARED ── */
+    section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 100px 6% 60px;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mauve);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--text-dark);
+      margin-bottom: 2.4rem;
+    }
+
+    .divider {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 6%;
+    }
+
+    .divider hr {
+      border: none;
+      border-top: 1px solid var(--beige-dark);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 58px;
+    }
+
+    .hero-inner {
+      width: 100%;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mauve);
+      background: var(--rose-pale);
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 7vw, 5.8rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--text-dark);
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--mauve);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-meta p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .hero-meta .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+      background: #eaf1e6;
+      padding: 3px 11px;
+      border-radius: 20px;
+      width: fit-content;
+      margin-top: 0.2rem;
+    }
+
+    .hero-bio {
+      font-size: 0.98rem;
+      line-height: 1.95;
+      color: var(--text-mid);
+      max-width: 540px;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--mauve);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--text-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--mauve);
+      border: 1.5px solid var(--mauve-light);
+    }
+
+    .btn-outline:hover {
+      background: var(--rose-pale);
+      transform: translateY(-2px);
+    }
+
+    /* ── BACKGROUND ── */
+    .bg-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .bg-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.2rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--beige-dark);
+    }
+
+    .bg-item:last-child { border-bottom: none; }
+
+    .bg-year {
+      font-size: 0.76rem;
+      color: var(--text-light);
+      letter-spacing: 0.08em;
+      padding-top: 0.15rem;
+      font-weight: 400;
+    }
+
+    .bg-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .bg-sub {
+      font-size: 0.83rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .bg-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 2px 9px;
+      border-radius: 12px;
+      margin-top: 0.5rem;
+    }
+
+    .tag-rose { color: #c08080; background: var(--rose-pale); }
+    .tag-sage { color: #7a9a6a; background: #eaf1e6; }
+    .tag-mauve { color: var(--mauve); background: #f0e8ee; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .pub-item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--beige-dark);
+    }
+
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-type {
+      font-size: 0.67rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mauve);
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.18rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      line-height: 1.4;
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-authors {
+      font-size: 0.83rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .pub-venue {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 0.25rem;
+      font-style: italic;
+    }
+
+    .pub-note {
+      font-size: 0.83rem;
+      color: var(--text-light);
+      margin-top: 1.8rem;
+    }
+
+    .pub-note a {
+      color: var(--mauve);
+      text-decoration: none;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      text-align: center;
+    }
+
+    .contact-email {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--mauve);
+      text-decoration: none;
+      margin: 1.8rem 0;
+      transition: color 0.25s;
+    }
+
+    .contact-email:hover { color: var(--text-dark); }
+
+    .contact-links {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none;
+      padding: 8px 18px;
+      border: 1px solid var(--beige-dark);
+      border-radius: 20px;
+      transition: all 0.25s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--mauve-light);
+      color: var(--mauve);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 6% 3rem;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--beige-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ── FADE IN ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .nav-links { gap: 1.2rem; }
+      .bg-item { grid-template-columns: 70px 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-name">Himika Das</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">First Year PhD Student · Graph Theory</div>
+      <h1 class="hero-name">Himika<br><em>Das</em></h1>
+      <div class="hero-meta">
+        <p>University of Geneva · Advised by <strong>Arnaud Casteigts</strong></p>
+        <span class="badge">ESKAS PhD Scholar</span>
+      </div>
+      <p class="hero-bio">
+        I work on graph theory, specifically temporal graphs — dynamic structures where edges and connections evolve over time. My broader interests span computational social choice and cryptography.
+      </p>
+      <div class="hero-cta">
+        <a href="#publications" class="btn btn-primary">Publications</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="fade-in">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Who I Am</h2>
+      <p style="font-size:0.97rem; line-height:1.95; color:var(--text-mid); margin-bottom:1rem;">
+        I am a first-year PhD researcher at the University of Geneva, working under the supervision of <strong style="color:var(--text-dark);">Arnaud Casteigts</strong>. My research focuses on <strong style="color:var(--text-dark);">temporal graphs</strong> — dynamic structures where edges are present only at certain times — with particular interest in reachability, connectivity, and complexity in time-varying networks.
+      </p>
+      <p style="font-size:0.97rem; line-height:1.95; color:var(--text-mid);">
+        I hold an <strong style="color:var(--text-dark);">ESKAS (Swiss Government Excellence) scholarship</strong> funding my doctoral research in Switzerland. Before my PhD, I worked on problems at the intersection of algorithms and fairness in computational social choice, and I hold a broader interest in cryptography.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- BACKGROUND -->
+  <section id="background">
+    <div class="fade-in">
+      <div class="section-label">Background</div>
+      <h2 class="section-title">Experience</h2>
+    </div>
+    <div class="bg-list fade-in">
+
+      <div class="bg-item">
+        <div class="bg-year">2024 – now</div>
+        <div>
+          <div class="bg-title">PhD in Computer Science</div>
+          <div class="bg-sub">University of Geneva, Switzerland<br>Advisor: Prof. Arnaud Casteigts</div>
+          <span class="bg-tag tag-mauve">ESKAS Scholar</span>
+        </div>
+      </div>
+
+      <div class="bg-item">
+        <div class="bg-year">2024</div>
+        <div>
+          <div class="bg-title">Master's in Computer Science</div>
+          <div class="bg-sub">Research in Algorithms & Computational Social Choice<br>Thesis advisor: Diptarka Chakraborty</div>
+          <span class="bg-tag tag-rose">Master Thesis</span>
+        </div>
+      </div>
+
+      <div class="bg-item">
+        <div class="bg-year">2024</div>
+        <div>
+          <div class="bg-title">SAND Conference</div>
+          <div class="bg-sub">Symposium on Algorithmic Foundations of Dynamic Networks</div>
+          <span class="bg-tag tag-sage">Conference</span>
+        </div>
+      </div>
+
+      <div class="bg-item">
+        <div class="bg-year">2024</div>
+        <div>
+          <div class="bg-title">ICALP Temporal Graphs Workshop</div>
+          <div class="bg-sub">Annual workshop on algorithmic aspects of temporal graphs</div>
+          <span class="bg-tag tag-sage">Workshop</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="fade-in">
+      <div class="section-label">Publications</div>
+      <h2 class="section-title">Research Output</h2>
+    </div>
+    <div class="pub-list fade-in">
+
+      <div class="pub-item">
+        <div class="pub-type">Master Thesis Publication</div>
+        <div class="pub-title">Improved Rank Aggregation under Fairness Constraint</div>
+        <div class="pub-authors"><strong>Himika Das</strong> · Diptarka Chakraborty et al.</div>
+        <div class="pub-venue">Computational Social Choice · Algorithms & Fairness</div>
+      </div>
+
+      <div class="pub-item" style="opacity:0.55;">
+        <div class="pub-type">Upcoming</div>
+        <div class="pub-title" style="font-style:italic; color:var(--text-light);">More publications in progress</div>
+        <div class="pub-authors" style="color:var(--text-light);">PhD research — temporal graph theory</div>
+      </div>
+
+    </div>
+    <p class="pub-note">
+      Full profile on <a href="https://scholar.google.com/citations?user=sUj2uXMAAAAJ&hl=en" target="_blank">Google Scholar →</a>
+    </p>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="fade-in">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Get in Touch</h2>
+      <p style="font-size:0.92rem; color:var(--text-mid); line-height:1.9;">
+        Happy to hear from fellow researchers, collaborators, or anyone curious about temporal graphs, social choice, or cryptography.
+      </p>
+      <a href="mailto:himikadas@unige.ch" class="contact-email">himikadas@unige.ch</a>
+      <div class="contact-links">
+        <a href="https://scholar.google.com/citations?user=sUj2uXMAAAAJ&hl=en" target="_blank" class="contact-link">Google Scholar</a>
+        <a href="mailto:himikadas@unige.ch" class="contact-link">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2025 Himika Das · University of Geneva</span>
+    <span>Geneva, Switzerland 🇨🇭</span>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) el.target.classList.add('visible');
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
